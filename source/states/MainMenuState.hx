@@ -12,37 +12,8 @@ enum MainMenuColumn {
 	RIGHT;
 }
 
-class MainMenuState extends FlxState {
-    public static var psychEngineVersion:String = "1.0"; // This is also used for Discord RPC
-
-    override public function create():Void {
-        super.create();
-        createButtons();
-    }
-
-    private function createButtons():Void {
-        var storyModeButton = new FlxButton(50, FlxG.height / 2 - 60, "Story Mode", function() {
-            FlxG.switchState(new StoryModeState());
-        });
-        add(storyModeButton);
-
-        var freeplayButton = new FlxButton(50, FlxG.height / 2, "Freeplay", function() {
-            FlxG.switchState(new FreeplayState());
-        });
-        add(freeplayButton);
-
-        var optionsButton = new FlxButton(50, FlxG.height / 2 + 60, "Options", function() {
-            FlxG.switchState(new OptionsState());
-        });
-        add(optionsButton);
-
-        var creditsButton = new FlxButton(50, FlxG.height / 2 + 120, "Credits", function() {
-            FlxG.switchState(new CreditsState());
-        });
-        add(creditsButton);
-    }
-}
-
+class MainMenuState extends MusicBeatState
+{
 
 	public static var psychEngineVersion:String = '1.0'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
@@ -161,6 +132,36 @@ class MainMenuState extends FlxState {
 		menuItems.add(menuItem);
 		return menuItem;
 	}
+	
+	class MainMenuState extends FlxState {
+    override public function create():Void {
+        super.create();
+        createButtons();
+    }
+
+    private function createButtons():Void {
+        var storyModeButton = new FlxButton(50, FlxG.height / 2 - 60, "Story Mode", function() {
+            FlxG.switchState(new StoryModeState());
+        });
+        add(storyModeButton);
+
+        var freeplayButton = new FlxButton(50, FlxG.height / 2, "Freeplay", function() {
+            FlxG.switchState(new FreeplayState());
+        });
+        add(freeplayButton);
+
+        var optionsButton = new FlxButton(50, FlxG.height / 2 + 60, "Options", function() {
+            FlxG.switchState(new OptionsState());
+        });
+        add(optionsButton);
+
+        var creditsButton = new FlxButton(50, FlxG.height / 2 + 120, "Credits", function() {
+            FlxG.switchState(new CreditsState());
+        });
+        add(creditsButton);
+    }
+}
+
 
 	var selectedSomethin:Bool = false;
 
